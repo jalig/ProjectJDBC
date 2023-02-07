@@ -118,6 +118,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
             statement.execute();
 
         } catch (SQLException e) {
+
         }
     }
 }
