@@ -17,7 +17,7 @@ public class Employee {
     private String gender;
     @Column(name = "age")
     private Integer age;
-    @ManyToOne (fetch = FetchType.LAZY)
+    @ManyToOne (cascade = CascadeType.ALL)
     @JoinColumn (name = "city_id")
     private City city;
 

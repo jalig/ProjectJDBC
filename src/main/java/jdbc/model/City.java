@@ -12,8 +12,8 @@ public class City {
     private Integer id;
     @Column(name = "city_name")
     private String cityName;
-    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
-    List <City> cityList;
+    @OneToMany(mappedBy = "city", cascade = CascadeType.ALL)
+    private List <City> cityList;
 
     public City(String cityName) {
         this.cityName = cityName;
