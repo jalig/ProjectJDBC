@@ -1,6 +1,0 @@
-jdbc\dao\EmployeeDAO.class
-jdbc\Application.class
-jdbc\model\City.class
-jdbc\dao\EmployeeDAOImpl.class
-jdbc\dao\Queries.class
-jdbc\model\Employee.class

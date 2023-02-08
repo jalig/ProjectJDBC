@@ -1,16 +1,26 @@
 package jdbc.model;
 
+import javax.persistence.*;
 import java.util.Objects;
-
+@Entity
+@Table(name = "employee")
 public class Employee {
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "id")
+    private Integer id;
+    @Column(name = "first_name")
     private String firstName;
+    @Column(name = "last_name")
     private String lastName;
+    @Column(name = "gender")
     private String gender;
-    private int age;
-    private City city;
+    @Column(name = "age")
+    private Integer age;
+    @Column(name = "city_id")
+    private Integer city;
 
-    public Employee(String firstName, String lastName, String gender, int age, City city) {
+    public Employee(String firstName, String lastName, String gender, Integer age, Integer city) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
@@ -18,7 +28,7 @@ public class Employee {
         this.city = city;
     }
 
-    public Employee(int id, String firstName, String lastName, String gender, int age, City city) {
+    public Employee(Integer id, String firstName, String lastName, String gender, Integer age, Integer city) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -30,11 +40,11 @@ public class Employee {
     public Employee() {
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -62,19 +72,19 @@ public class Employee {
         this.gender = gender;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
-    public City getCity() {
+    public Integer getCity() {
         return city;
     }
 
-    public void setCity(City city) {
+    public void setCity(Integer city) {
         this.city = city;
     }
 
@@ -83,7 +93,7 @@ public class Employee {
         if (this == o) return true;
         if (!(o instanceof Employee)) return false;
         Employee employee = (Employee) o;
-        return id == employee.id && age == employee.age && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName) && Objects.equals(gender, employee.gender) && Objects.equals(city, employee.city);
+        return Objects.equals(id, employee.id) && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName) && Objects.equals(gender, employee.gender) && Objects.equals(age, employee.age) && Objects.equals(city, employee.city);
     }
 
     @Override

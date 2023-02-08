@@ -2,36 +2,22 @@ package jdbc;
 
 import jdbc.dao.EmployeeDAO;
 import jdbc.dao.EmployeeDAOImpl;
-import jdbc.model.City;
 import jdbc.model.Employee;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 
 public class Application {
     public static void main(String[] args) {
-        final String user = "postgres";
-        final String pass = "369303253";
-        final String url = "jdbc:postgresql://localhost:5432/skypro";
+        EmployeeDAO employeeDAO = new EmployeeDAOImpl();
 
-        try (final Connection connection = DriverManager.getConnection(url, user, pass)) {
+        Employee employee = new Employee(9,"Slavik","Varan","male",20,5);
 
-            EmployeeDAO employeeDAO = new EmployeeDAOImpl(connection);
+//        employeeDAO.create(employee);
 
-            City city = new City(5, "Саратов");
-            Employee denzel = new Employee("Denzel", "Washington", "male", 68, city);
+//        System.out.println(employeeDAO.getById(2));
 
-//            employeeDAO.create(denzel);
-//            System.out.println(employeeDAO.getById(2));
-//            System.out.println(employeeDAO.getAllEmployees());
-//            employeeDAO.updateById(4, "Valera", "Semenov", "male", 21, 4);
-//            employeeDAO.deleteById(7);
+//        System.out.println(employeeDAO.getAllEmployees());
 
+//        employeeDAO.updateById(new Employee(9,"Bplavik","Baran","male",5,5));
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
+//        employeeDAO.deleteById(employee);
     }
 }
