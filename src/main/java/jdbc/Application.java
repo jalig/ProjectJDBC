@@ -24,18 +24,18 @@ public class Application {
 
 //        employeeDAO.deleteById(employee);
 
-// _____________________________________________________________________________________________________________________
+// _____________________________________________________________________________________________________________________//
 
 //        cityDAO.create(city);
-//
+
 //        System.out.println(cityDAO.getById(3));
-//
+
 //        System.out.println(cityDAO.getAllEmployees());
-//
+
 //        cityDAO.updateById(city);
-//
+
 //        cityDAO.deleteById(cityDAO.getById(3));
-//
+
 
     }
 }

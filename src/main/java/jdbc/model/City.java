@@ -13,7 +13,7 @@ public class City {
     @Column(name = "city_name")
     private String cityName;
     @OneToMany(mappedBy = "city", cascade = CascadeType.ALL)
-    private List <City> cityList;
+    private List <Employee> employees;
 
     public City(String cityName) {
         this.cityName = cityName;
@@ -38,12 +38,12 @@ public class City {
         this.cityName = cityName;
     }
 
-    public List<City> getCityList() {
-        return cityList;
+    public List<Employee> getEmployees() {
+        return employees;
     }
 
-    public void setCityList(List<City> cityList) {
-        this.cityList = cityList;
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
     }
 
     @Override
@@ -51,12 +51,12 @@ public class City {
         if (this == o) return true;
         if (!(o instanceof City)) return false;
         City city = (City) o;
-        return Objects.equals(id, city.id) && Objects.equals(cityName, city.cityName) && Objects.equals(cityList, city.cityList);
+        return Objects.equals(id, city.id) && Objects.equals(cityName, city.cityName) && Objects.equals(employees, city.employees);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, cityName, cityList);
+        return Objects.hash(id, cityName, employees);
     }
 
     @Override
