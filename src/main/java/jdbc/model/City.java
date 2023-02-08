@@ -1,21 +1,32 @@
 package jdbc.model;
 
+import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
-
+@Entity
+@Table(name = "city")
 public class City {
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "city_id")
+    private Integer id;
+    @Column(name = "city_name")
     private String cityName;
+    @OneToMany(mappedBy = "city", cascade = CascadeType.ALL)
+    private List <City> cityList;
 
-    public City(int id, String cityName) {
-        this.id = id;
+    public City(String cityName) {
         this.cityName = cityName;
     }
 
-    public int getId() {
+    public City() {
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -27,17 +38,25 @@ public class City {
         this.cityName = cityName;
     }
 
+    public List<City> getCityList() {
+        return cityList;
+    }
+
+    public void setCityList(List<City> cityList) {
+        this.cityList = cityList;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof City)) return false;
         City city = (City) o;
-        return id == city.id && Objects.equals(cityName, city.cityName);
+        return Objects.equals(id, city.id) && Objects.equals(cityName, city.cityName) && Objects.equals(cityList, city.cityList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, cityName);
+        return Objects.hash(id, cityName, cityList);
     }
 
     @Override
