@@ -34,7 +34,7 @@ public class Application {
 //
 //        cityDAO.updateById(city);
 //
-//        cityDAO.deleteById(city);
+//        cityDAO.deleteById(cityDAO.getById(3));
 //
 
     }
